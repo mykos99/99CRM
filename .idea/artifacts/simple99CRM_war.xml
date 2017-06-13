@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="simple99CRM:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="simple99CRM-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="simple99CRM:war exploded" />
+    </root>
+  </artifact>
+</component>
