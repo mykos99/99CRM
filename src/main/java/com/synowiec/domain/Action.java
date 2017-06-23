@@ -18,9 +18,9 @@ public class Action {
     @ManyToOne
     private Customer customer;
     @ManyToOne
-    private Employee fromEmployee;
+    private User fromUser;
     @ManyToOne
-    private Employee toEmployee;
+    private User toUser;
     @ManyToOne
     private ActionType actionType;
     @OneToMany(mappedBy = "action")
@@ -29,14 +29,14 @@ public class Action {
     public Action() {
     }
 
-    public Action(Date startDate, Date endDate, String description, Contact contact, Customer customer, Employee fromEmployee, Employee toEmployee, ActionType actionType) {
+    public Action(Date startDate, Date endDate, String description, Contact contact, Customer customer, User fromUser, User toUser, ActionType actionType) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
         this.contact = contact;
         this.customer = customer;
-        this.fromEmployee = fromEmployee;
-        this.toEmployee = toEmployee;
+        this.fromUser = fromUser;
+        this.toUser = toUser;
         this.actionType = actionType;
     }
 
@@ -88,20 +88,20 @@ public class Action {
         this.customer = customer;
     }
 
-    public Employee getFromEmployee() {
-        return fromEmployee;
+    public User getFromUser() {
+        return fromUser;
     }
 
-    public void setFromEmployee(Employee fromEmployee) {
-        this.fromEmployee = fromEmployee;
+    public void setFromUser(User fromUser) {
+        this.fromUser = fromUser;
     }
 
-    public Employee getToEmployee() {
-        return toEmployee;
+    public User getToUser() {
+        return toUser;
     }
 
-    public void setToEmployee(Employee toEmployee) {
-        this.toEmployee = toEmployee;
+    public void setToUser(User toUser) {
+        this.toUser = toUser;
     }
 
     public ActionType getActionType() {

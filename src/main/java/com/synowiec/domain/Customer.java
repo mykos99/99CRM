@@ -1,5 +1,6 @@
 package com.synowiec.domain;
 
+import org.hibernate.validator.constraints.*;
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,15 +11,19 @@ public class Customer {
     private long id;
     private String shortName;
     private String longName;
+    @Email(message = "Not correct email address.")
     private String email;
+    @Length(min = 3, max = 30)
     private String telephone;
+    @Length(min = 3, max = 30)
     private String fax;
+    @Length(min = 6, max = 30)
     private String vat;
     private String regon;
     @ManyToOne
     private Address address;
     @ManyToOne
-    private Employee salesman;
+    private User salesman;
     @ManyToOne
     private CustomerType custType;
     @OneToMany(mappedBy = "customer")
@@ -28,7 +33,7 @@ public class Customer {
     }
 
     public Customer(String shortName, String longName, String email, String telephone, String fax,
-                    String vat, String regon, Address address, Employee salesman, CustomerType custType) {
+                    String vat, String regon, Address address, User salesman, CustomerType custType) {
         this.shortName = shortName;
         this.longName = longName;
         this.email = email;
@@ -113,11 +118,11 @@ public class Customer {
         this.address = address;
     }
 
-    public Employee getSalesman() {
+    public User getSalesman() {
         return salesman;
     }
 
-    public void setSalesman(Employee salesman) {
+    public void setSalesman(User salesman) {
         this.salesman = salesman;
     }
 

@@ -52,8 +52,8 @@
                 <value>com.synowiec.domain.Contact</value>
                 <value>com.synowiec.domain.Customer</value>
                 <value>com.synowiec.domain.CustomerType</value>
-                <value>com.synowiec.domain.Employee</value>
-                <value>com.synowiec.domain.EmployeeType</value>
+                <value>com.synowiec.domain.User</value>
+                <value>com.synowiec.domain.UserRole</value>
             </list>
         </property>
         <property name="hibernateProperties">

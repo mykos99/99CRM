@@ -1,7 +1,6 @@
 package com.synowiec.controller;
 
 import com.synowiec.domain.Contact;
-import com.synowiec.domain.Customer;
 import com.synowiec.service.interfaces.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +29,7 @@ public class CustomerContactController {
     public String customerContactList(Model model, @RequestParam("customerId") long customerId) {
         System.out.println("Customer id: "+customerId);
         model.addAttribute("contactList", customerService.getCustomerContacts(customerService.findCustomerById(customerId)));
+        model.addAttribute("customer", customerService.findCustomerById(customerId));
         return "customer/contact/contact-list";
     }
 
@@ -41,8 +41,8 @@ public class CustomerContactController {
     }
 
     @RequestMapping("updateContactForm")
-    public String showUpdateContactForm(Model model, @RequestParam("contactId") long conmtactId) {
-        model.addAttribute("contact", customerService.findContactById(conmtactId));
+    public String showUpdateContactForm(Model model, @RequestParam("contactId") long contactId) {
+        model.addAttribute("contact", customerService.findContactById(contactId));
         model.addAttribute("customers", customerService.getAllCustomers());
         model.addAttribute("update", true);
         return "customer/contact/contact-edit-form";

@@ -12,15 +12,13 @@
 <body>
 
 <div class="container">
-    <h1>Main Page</h1>
+    <h1>99CRM - Home page</h1>
     <p>Choose one of the options below:</p>
 
-    <a href="/employee/list">Employees</a>  |
+    <a href="/action/actionList">Actions</a>  |
+    <a href="/user/list">Users</a>  |
     <a href="/customer/list">Customers</a>  |
     <a href="/customer/contactList">Contacts</a>  |
-    <a href="/customer/addressList">Addresses</a>  |
-    <a href="/customer/customerTypeList">Customer Types</a>
-
 </div>
 </body>
 </html>

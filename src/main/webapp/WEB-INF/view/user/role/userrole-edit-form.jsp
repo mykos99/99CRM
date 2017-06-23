@@ -11,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Add new Employee Type</title>
+    <title>Add new User Role</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,15 +20,15 @@
 <body>
 
 <div class="container">
-    <h1>Employee Type form</h1>
-    <p>Please put below employee type details and click SAVE to update database:</p>
-    <c:set var="action" value="newEmployeeTypeProcess"/>
+    <h1>User Role form</h1>
+    <p>Please put below user role details and click SAVE to update database:</p>
+    <c:set var="action" value="newUserRoleProcess"/>
     <c:if test="${update}">
-        <c:set var="action" value="updateEmployeeTypeProcess"/>
+        <c:set var="action" value="updateUserRoleProcess"/>
     </c:if>
-    <form:form method="POST"  action="${action}" modelAttribute="employeeType">
-        <form:input path="id" type="hidden" value="${employeeType.id}"/>
-        Name: <form:input path="name" value="${employeeType.name}"/>
+    <form:form method="POST"  action="${action}" modelAttribute="userRole">
+        <form:input path="id" type="hidden" value="${userRole.id}"/>
+        Name: <form:input path="name" value="${userRole.name}"/>
         <br>
         <input type="submit" value="Save" />
     </form:form>

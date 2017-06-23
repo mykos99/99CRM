@@ -5,15 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class EmployeeType{
+public class UserRole {
 	@Id
 	@GeneratedValue
 	private long id;
 	private String name;
 	
-	public EmployeeType(){};
+	public UserRole(){};
 	
-	public EmployeeType(String name){
+	public UserRole(String name){
 
 		this.name = name;
 	}

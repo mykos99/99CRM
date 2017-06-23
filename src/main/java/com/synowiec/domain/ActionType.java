@@ -33,7 +33,7 @@ public class ActionType {
 
 	@Override
 	public String toString() {
-		return "ActionType [Id=" + Id + ", name=" + name + "]";
+		return name;
 	}
 	
 }

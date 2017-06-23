@@ -24,7 +24,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     ContactDao contactDao;
     @Autowired
-    EmployeeDao employeeDao;
+    UserDao userDao;
 
     @Override
     @Transactional
@@ -46,7 +46,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void addCustomer(Customer customer) {
         customer.setCustType(this.findCustomerTypeById(customer.getCustType().getId()));
-        customer.setSalesman((employeeDao.findEmployee(customer.getSalesman().getId())));
+        customer.setSalesman((userDao.findUser(customer.getSalesman().getId())));
         this.addAddress(customer.getAddress());
         customerDao.addCustomer(customer);
     }
@@ -57,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void updateCustomer(Customer customer) {
         customer.setCustType(this.findCustomerTypeById(customer.getCustType().getId()));
-        customer.setSalesman((employeeDao.findEmployee(customer.getSalesman().getId())));
+        customer.setSalesman((userDao.findUser(customer.getSalesman().getId())));
         this.updateAddress(customer.getAddress());
         customerDao.updateCustomer(customer);
     }

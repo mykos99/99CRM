@@ -40,7 +40,7 @@
         Fax: <form:input path="fax" value="${customer.fax}"/><br>
         VAT: <form:input path="vat" value="${customer.vat}"/><br>
         Regon: <form:input path="regon" value="${customer.regon}"/><br>
-        Salesman: <form:select path="salesman.id" items="${employeeList}"  itemValue="id" value="${customer.salesman}"/><br>
+        Salesman: <form:select path="salesman.id" items="${userList}"  itemValue="id" value="${customer.salesman}"/><br>
         Customer Type: <form:select path="custType.id" items="${customerTypeList}"  itemValue="id" value="${customer.custType}"/><br>
         <input type="submit" value="Save" />
     </form:form>

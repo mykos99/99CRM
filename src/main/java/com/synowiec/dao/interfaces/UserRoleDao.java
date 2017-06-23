@@ -5,13 +5,13 @@ import com.synowiec.domain.UserRole;
 import java.util.List;
 
 
-public interface EmployeeTypeDao  {
+public interface UserRoleDao {
 
-    UserRole findEmployeeType(long id);
-    List<UserRole> getAllEmployeeTypes();
-    void addEmployeeType(UserRole userRole);
-    void updateEmployeeType(UserRole userRole);
-    void deleteEmployeeType(UserRole userRole);
+    UserRole findUserRole(long id);
+    List<UserRole> getAllUserRoles();
+    void addUserRole(UserRole userRole);
+    void updateUserRole(UserRole userRole);
+    void deleteUserRole(UserRole userRole);
 
 }
 

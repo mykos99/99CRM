@@ -4,10 +4,10 @@ import com.synowiec.domain.User;
 
 import java.util.List;
 
-public interface EmployeeDao {
-	User findEmployee(long id);
-	List<User> getAllEmployees();
-	void addEmployee(User user);
-	void updateEmployee(User user);
-	void deleteEmployee(User user);
+public interface UserDao {
+	User findUser(long id);
+	List<User> getAllUsers();
+	void addUser(User user);
+	void updateUser(User user);
+	void deleteUser(User user);
 }

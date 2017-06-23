@@ -3,7 +3,7 @@ package com.synowiec.domain;
 import javax.persistence.*;
 
 @Entity
-public class Employee {
+public class User {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -13,23 +13,23 @@ public class Employee {
 	private String email;
 	private String telephone;
 	@ManyToOne
-	private EmployeeType empType;
+	private UserRole userRole;
 	
-	public Employee(){};
+	public User(){};
 	
-	public Employee(String firstName, String lastName, String position, String email, String telephone,
-			EmployeeType empType) {
+	public User(String firstName, String lastName, String position, String email, String telephone,
+				UserRole userRole) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.position = position;
 		this.email = email;
 		this.telephone = telephone;
-		this.empType = empType;
+		this.userRole = userRole;
 	}
 
 
 	
-	public Employee(String firstName, String lastName) {
+	public User(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -83,15 +83,16 @@ public class Employee {
 		this.telephone = telephone;
 	}
 
-	public EmployeeType getEmpType() {
-		return empType;
+	public UserRole getUserRole() {
+		return userRole;
 	}
-	public void setEmpType(EmployeeType empType) {
-		this.empType = empType;
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 	@Override
 	public String toString() {
-		return "["+id+"] "+firstName+" "+lastName+" - "+position+" - "+empType.getName();
+		return "["+id+"] "+firstName+" "+lastName+" - "+position+" - "+ userRole.getName();
 	}
 
 }

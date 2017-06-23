@@ -13,51 +13,51 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by mikolaj on 01.06.17.
  */
 @Controller
-@RequestMapping("/employee")
-public class EmployeeController {
+@RequestMapping("/user")
+public class UserController {
 
     @Autowired
     UserService userService;
 
     //User methods
     @RequestMapping("/list")
-    public String employeeList(Model model) {
-        model.addAttribute("employeeList", userService.getAllUsers());
-        return "employee/employee-list";
+    public String userList(Model model) {
+        model.addAttribute("userList", userService.getAllUsers());
+        return "user/user-list";
     }
 
-    @RequestMapping("/newEmployeeForm")
-    public String showNewEmployeeForm(Model model) {
-        model.addAttribute("employee", new User());
-        model.addAttribute("employeeTypeList", userService.getAllUserRoles());
-        return "employee/employee-edit-form";
+    @RequestMapping("/newUserForm")
+    public String showNewUserForm(Model model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("userRoleList", userService.getAllUserRoles());
+        return "user/user-edit-form";
     }
 
-    @RequestMapping("/updateEmployeeForm")
-    public String showUpdateEmployeeForm(Model model, @RequestParam("empId") long employeeId) {
-        model.addAttribute("employee", userService.findUserById(employeeId));
-        model.addAttribute("employeeTypeList", userService.getAllUserRoles());
+    @RequestMapping("/updateUserForm")
+    public String showUpdateUserForm(Model model, @RequestParam("userId") long userId) {
+        model.addAttribute("user", userService.findUserById(userId));
+        model.addAttribute("userRoleList", userService.getAllUserRoles());
         model.addAttribute("update", true);
-        return "employee/employee-edit-form";
+        return "user/user-edit-form";
     }
 
-    @RequestMapping("/newEmployeeProcess")
-    public String processNewEmployeeForm(@ModelAttribute("employee") User user) {
+    @RequestMapping("/newUserProcess")
+    public String processNewUserForm(@ModelAttribute("user") User user) {
         user.setUserRole(userService.findUserRoleById((long) user.getUserRole().getId()));
         userService.addUser(user);
         return "redirect:/user/list";
     }
 
-    @RequestMapping("/updateEmployeeProcess")
-    public String processUpdateEmployeeForm(@ModelAttribute("employee") User user) {
+    @RequestMapping("/updateUserProcess")
+    public String processUpdateUserForm(@ModelAttribute("user") User user) {
         user.setUserRole(userService.findUserRoleById((long) user.getUserRole().getId()));
         userService.updateUser(user);
         return "redirect:/user/list";
     }
 
-    @RequestMapping("/deleteEmployee")
-    public String processDeleteEmployee(@RequestParam("empId") long employeeId) {
-        userService.deleteUser(userService.findUserById(employeeId));
+    @RequestMapping("/deleteUser")
+    public String processDeleteUser(@RequestParam("userId") long userId) {
+        userService.deleteUser(userService.findUserById(userId));
         return "redirect:/user/list";
     }
 

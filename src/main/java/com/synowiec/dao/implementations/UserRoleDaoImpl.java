@@ -1,6 +1,6 @@
 package com.synowiec.dao.implementations;
 
-import com.synowiec.dao.interfaces.EmployeeTypeDao;
+import com.synowiec.dao.interfaces.UserRoleDao;
 import com.synowiec.domain.UserRole;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,40 +8,40 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("EmployeeTypeDao")
-public class EmployeeTypeDaoImpl implements EmployeeTypeDao {
+@Repository("UserRoleDao")
+public class UserRoleDaoImpl implements UserRoleDao {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public UserRole findEmployeeType(long id) {
+    public UserRole findUserRole(long id) {
         return (UserRole) sessionFactory.getCurrentSession().get(UserRole.class, id);
     }
 
     ;
 
     @Override
-    public List<UserRole> getAllEmployeeTypes() {
+    public List<UserRole> getAllUserRoles() {
         return sessionFactory.getCurrentSession().createCriteria(UserRole.class).list();
     }
 
     @Override
-    public void addEmployeeType(UserRole empType) {
+    public void addUserRole(UserRole empType) {
         sessionFactory.getCurrentSession().persist(empType);
     }
 
     ;
 
     @Override
-    public void updateEmployeeType(UserRole empType) {
+    public void updateUserRole(UserRole empType) {
         sessionFactory.getCurrentSession().update(empType);
     }
 
     ;
 
     @Override
-    public void deleteEmployeeType(UserRole empType) {
+    public void deleteUserRole(UserRole empType) {
         sessionFactory.getCurrentSession().delete(empType);
     }
 

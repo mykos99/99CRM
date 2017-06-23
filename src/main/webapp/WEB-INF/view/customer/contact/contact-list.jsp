@@ -20,7 +20,13 @@
 <body>
 
 <div class="container">
-    <h1>Contact page</h1>
+    <c:choose>
+        <c:when test="${customer.id>0}">
+            <h1>Contact page - ${customer.shortName}</h1></c:when>
+        <c:otherwise>
+          <h1>Contact page</h1>
+        </c:otherwise>
+    </c:choose>
     <p>Choose one of the options below:</p>
 
     <%--ALERTS--%>
@@ -67,11 +73,13 @@
                 <td>${contact.email}</td>
                 <td>[${contact.customer.id}] ${contact.customer.shortName}</td>
                 <td>
+                    <%--Update button--%>
                     <c:url var="updateContact" value="/customer/updateContactForm"/>
                     <form id="${contact.id}" action="${updateContact}" method="POST">
                         <input id="contactId" name="contactId" type="hidden" value="${contact.id}"/>
                         <input type="submit" value="Update"/>
                     </form>
+                    <%--Delete button--%>
                     <c:url var="deleteContact" value="/customer/deleteContact"/>
                     <form id="${contact.id}" action="${deleteContact}" method="POST">
                         <input id="contactDelete" name="contactId" type="hidden" value="${contact.id}"/>

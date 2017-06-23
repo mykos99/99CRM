@@ -11,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Add new employee</title>
+    <title>Add new user</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,26 +20,26 @@
 <body>
 
 <div class="container">
-    <h1>Employee form</h1>
-    <p>Please put below employee details and click SAVE to update database:</p>
-    <c:set var="action" value="newEmployeeProcess"/>
+    <h1>User form</h1>
+    <p>Please put below user details and click SAVE to update database:</p>
+    <c:set var="action" value="newUserProcess"/>
     <c:if test="${update}">
-        <c:set var="action" value="updateEmployeeProcess"/>
+        <c:set var="action" value="updateUserProcess"/>
     </c:if>
-    <form:form method="POST"  action="${action}" modelAttribute="employee">
-        <form:input path="id" type="hidden" value="${employee.id}"/>
-        First name: <form:input path="firstName" value="${employee.firstName}"/>
+    <form:form method="POST"  action="${action}" modelAttribute="user">
+        <form:input path="id" type="hidden" value="${user.id}"/>
+        First name: <form:input path="firstName" value="${user.firstName}"/>
         <br>
-        Last name: <form:input path="lastName" value="${employee.lastName}"/>
+        Last name: <form:input path="lastName" value="${user.lastName}"/>
         <br>
-        Position: <form:input path="position" value="${employee.position}"/>
+        Position: <form:input path="position" value="${user.position}"/>
         <br>
-        Email: <form:input path="email" value="${employee.email}"/>
+        Email: <form:input path="email" value="${user.email}"/>
         <br>
-        Telephone: <form:input path="telephone" value="${employee.telephone}"/>
+        Telephone: <form:input path="telephone" value="${user.telephone}"/>
         <br>
-        Employee Type:
-        <form:select path="userRole.id" items="${employeeTypeList}" itemValue="id" value="${employee.userRole}"/>
+        User role:
+        <form:select path="userRole.id" items="${userRoleList}" itemValue="id" value="${user.userRole}"/>
         <br>
         <input type="submit" value="Save" />
     </form:form>

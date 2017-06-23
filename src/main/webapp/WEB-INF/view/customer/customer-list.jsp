@@ -50,7 +50,6 @@
         <tr>
             <th>Short Name</th>
             <th>Long Name</th>
-            <th>Email</th>
             <th>Tel</th>
             <th>VAT</th>
             <th>Regon</th>
@@ -65,7 +64,6 @@
             <tr>
                 <td>[${customer.id}] ${customer.shortName}</td>
                 <td>${customer.longName}</td>
-                <td>${customer.email}</td>
                 <td>${customer.telephone}</td>
                 <td>${customer.vat}</td>
                 <td>${customer.regon}</td>

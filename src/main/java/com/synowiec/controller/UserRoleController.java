@@ -14,55 +14,55 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by mikolaj on 07.06.17.
  */
 @Controller
-@RequestMapping("/employee")
-public class EmployeeTypeController {
+@RequestMapping("/user")
+public class UserRoleController {
 
     @Autowired
     UserService userService;
 
     //UserRole methods
-    @RequestMapping("/employeeTypeList")
-    public String employeeTypeList(Model model) {
-        model.addAttribute("employeeTypeList", userService.getAllUserRoles());
-        return "employee/type/emptype-list";
+    @RequestMapping("/userRoleList")
+    public String userRoleList(Model model) {
+        model.addAttribute("userRoleList", userService.getAllUserRoles());
+        return "user/role/userrole-list";
     }
 
-    @RequestMapping("/newEmployeeTypeForm")
-    public String newEmployeeTypeForm(Model model) {
-        model.addAttribute("employeeType", new UserRole());
-        return "employee/type/emptype-edit-form";
+    @RequestMapping("/newUserRoleForm")
+    public String newUserRoleForm(Model model) {
+        model.addAttribute("userRole", new UserRole());
+        return "user/role/userrole-edit-form";
     }
 
-    @RequestMapping("updateEmployeeTypeForm")
-    public String updateEmployeeTypeForm(Model model, @RequestParam("empTypeId") long empTypeId) {
-        model.addAttribute("employeeType", userService.findUserRoleById(empTypeId));
+    @RequestMapping("updateUserRoleForm")
+    public String updateUserRoleForm(Model model, @RequestParam("userRoleId") long userRoleId) {
+        model.addAttribute("userRole", userService.findUserRoleById(userRoleId));
         model.addAttribute("update", true);
-        return "employee/type/emptype-edit-form";
+        return "user/role/userrole-edit-form";
     }
 
-    @RequestMapping("newEmployeeTypeProcess")
-    public String processNewEmployeeTypeForm(@ModelAttribute("employeeType") UserRole userRole) {
+    @RequestMapping("newUserRoleProcess")
+    public String processNewUserRoleForm(@ModelAttribute("userRole") UserRole userRole) {
         userService.addUserRole(userRole);
-        return "redirect:/employee/employeeTypeList";
+        return "redirect:/user/userRoleList";
     }
 
-    @RequestMapping("updateEmployeeTypeProcess")
-    public String processUpdateEmployeeTypeForm(@ModelAttribute("employeeType") UserRole userRole){
+    @RequestMapping("updateUserRoleProcess")
+    public String processUpdateUserRoleForm(@ModelAttribute("userRole") UserRole userRole){
         userService.updateUserRole(userRole);
-        return "redirect:/employee/employeeTypeList";
+        return "redirect:/user/userRoleList";
     }
 
-    @RequestMapping("/deleteEmployeeType")
-    public String processDeleteEmployeeType(@RequestParam("empTypeId") long employeeTypeId, Model model){
+    @RequestMapping("/deleteUserRole")
+    public String processDeleteEmployeeType(@RequestParam("userRoleId") long userRoleId, Model model){
         try{
-            userService.deleteUserRole(userService.findUserRoleById(employeeTypeId));
+            userService.deleteUserRole(userService.findUserRoleById(userRoleId));
         } catch (DataIntegrityViolationException e) {
             System.out.println("Exception: "+ e);
             System.out.println("getCouse: "+ e.getCause());
             System.out.println("getMessage: "+e.getMessage());
             System.out.println("getClass: "+e.getClass());
         }
-        return "redirect:/employee/employeeTypeList";
+        return "redirect:/user/userRoleList";
     }
 
 }

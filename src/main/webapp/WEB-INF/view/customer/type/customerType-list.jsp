@@ -69,7 +69,7 @@
                     <form id="${customerType.id}" action="${deleteCustomerType}" method="POST">
                         <input id="customerTypeDelete" name="customerTypeId" type="hidden" value="${customerType.id}"/>
                         <input type="submit" value="Delete"
-                               onClick="return confirm('Deleting customer type [${customerType.id}] ${customerType.name}. Are you sure?')"/>
+                               onClick="return confirm('Deleting customer role [${customerType.id}] ${customerType.name}. Are you sure?')"/>
                     </form>
                 </td>
             </tr>

@@ -1,9 +1,8 @@
 package com.synowiec.controller;
 
-import com.synowiec.domain.Address;
 import com.synowiec.domain.Customer;
 import com.synowiec.service.interfaces.CustomerService;
-import com.synowiec.service.interfaces.EmployeeService;
+import com.synowiec.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +20,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
     @Autowired
-    EmployeeService employeeService;
+    UserService userService;
 
     @RequestMapping("list")
     public String customerList(Model model) {
@@ -33,7 +32,7 @@ public class CustomerController {
     public String showNewCustomerForm(Model model) {
         model.addAttribute("customer", new Customer());
         model.addAttribute("customerTypeList", customerService.getAllCustomerTypes());
-        model.addAttribute("employeeList", employeeService.getAllEmployees());
+        model.addAttribute("userList", userService.getAllUsers());
         return "customer/customer-edit-form";
     }
 
@@ -41,7 +40,7 @@ public class CustomerController {
     public String showUpdateCustomerForm(Model model, @RequestParam("customerId") long customerId) {
         model.addAttribute("customer", customerService.findCustomerById(customerId));
         model.addAttribute("customerTypeList", customerService.getAllCustomerTypes());
-        model.addAttribute("employeeList", employeeService.getAllEmployees());
+        model.addAttribute("userList", userService.getAllUsers());
         model.addAttribute("update", true);
         return "customer/customer-edit-form";
     }

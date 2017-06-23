@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <td align="right">Customer</td>
-                    <td><form:select path="customer.id" items="${customers}"  itemValue="id" value="${contact.customer}"/></td>
+                    <td><form:select path="customer.id" items="${customers}" itemValue="id" value="${contact.customer}"/></td>
                 </tr>
                 <tr>
                     <td align="right"><input type="submit" value="Save" /></td>

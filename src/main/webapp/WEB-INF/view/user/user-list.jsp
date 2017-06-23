@@ -11,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Employee page</title>
+    <title>User page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,7 +20,7 @@
 <body>
 
 <div class="container">
-    <h1>Employee page</h1>
+    <h1>User page</h1>
     <p>Choose one of the options below:</p>
 
     <%--ALERTS--%>
@@ -41,8 +41,8 @@
         <%--<strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.--%>
     <%--</div>--%>
 
-    <a href="newEmployeeForm">New employee</a> |
-    <a href="/employee/employeeTypeList">Employee Types</a> |
+    <a href="/user/newUserForm">New user</a> |
+    <a href="/user/userRoleList">User Roles</a> |
     <a href="/">Main Page</a>
 
     <table class="table">
@@ -50,31 +50,31 @@
         <tr>
             <th>Name</th>
             <th>Position</th>
-            <th>Employee Type</th>
+            <th>User role</th>
             <th>Email</th>
             <th>Telephone</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${employeeList}" var="employee">
+        <c:forEach items="${userList}" var="user">
             <tr>
-                <td>[${employee.id}] ${employee.firstName} ${employee.lastName}</td>
-                <td>${employee.position}</td>
-                <td>${employee.empType}</td>
-                <td>${employee.email}</td>
-                <td>${employee.telephone}</td>
+                <td>[${user.id}] ${user.firstName} ${user.lastName}</td>
+                <td>${user.position}</td>
+                <td>${user.userRole}</td>
+                <td>${user.email}</td>
+                <td>${user.telephone}</td>
                 <td>
-                    <c:url var="updateEmployee" value="/employee/updateEmployeeForm"/>
-                    <form id="${employee.id}" action="${updateEmployee}" method="POST">
-                        <input id="empIdUpdate" name="empId" type="hidden" value="${employee.id}"/>
+                    <c:url var="updateUser" value="/user/updateUserForm"/>
+                    <form id="${user.id}" action="${updateUser}" method="POST">
+                        <input id="userIdUpdate" name="userId" type="hidden" value="${user.id}"/>
                         <input type="submit" value="Update"/>
                     </form>
-                    <c:url var="deleteEmployee" value="/employee/deleteEmployee"/>
-                    <form id="${employee.id}" action="${deleteEmployee}" method="POST">
-                        <input id="empIdDelete" name="empId" type="hidden" value="${employee.id}"/>
+                    <c:url var="deleteUser" value="/user/deleteUser"/>
+                    <form id="${user.id}" action="${deleteUser}" method="POST">
+                        <input id="userIdDelete" name="userId" type="hidden" value="${user.id}"/>
                         <input type="submit" value="Delete"
-                               onClick="return confirm('Removing employee [${employee.id}] ${employee.firstName} ${employee.lastName}. Are you sure?')"/>
+                               onClick="return confirm('Removing user [${user.id}] ${user.firstName} ${user.lastName}. Are you sure?')"/>
                     </form>
                 </td>
             </tr>
