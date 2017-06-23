@@ -1,11 +1,10 @@
 package com.synowiec.dao.implementations;
 
 import com.synowiec.dao.interfaces.EmployeeTypeDao;
-import com.synowiec.domain.EmployeeType;
+import com.synowiec.domain.UserRole;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,33 +15,33 @@ public class EmployeeTypeDaoImpl implements EmployeeTypeDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public EmployeeType findEmployeeType(long id) {
-        return (EmployeeType) sessionFactory.getCurrentSession().get(EmployeeType.class, id);
+    public UserRole findEmployeeType(long id) {
+        return (UserRole) sessionFactory.getCurrentSession().get(UserRole.class, id);
     }
 
     ;
 
     @Override
-    public List<EmployeeType> getAllEmployeeTypes() {
-        return sessionFactory.getCurrentSession().createCriteria(EmployeeType.class).list();
+    public List<UserRole> getAllEmployeeTypes() {
+        return sessionFactory.getCurrentSession().createCriteria(UserRole.class).list();
     }
 
     @Override
-    public void addEmployeeType(EmployeeType empType) {
+    public void addEmployeeType(UserRole empType) {
         sessionFactory.getCurrentSession().persist(empType);
     }
 
     ;
 
     @Override
-    public void updateEmployeeType(EmployeeType empType) {
+    public void updateEmployeeType(UserRole empType) {
         sessionFactory.getCurrentSession().update(empType);
     }
 
     ;
 
     @Override
-    public void deleteEmployeeType(EmployeeType empType) {
+    public void deleteEmployeeType(UserRole empType) {
         sessionFactory.getCurrentSession().delete(empType);
     }
 

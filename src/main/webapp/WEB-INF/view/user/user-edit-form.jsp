@@ -39,7 +39,7 @@
         Telephone: <form:input path="telephone" value="${employee.telephone}"/>
         <br>
         Employee Type:
-        <form:select path="empType.id" items="${employeeTypeList}"  itemValue="id" value="${employee.empType}"/>
+        <form:select path="userRole.id" items="${employeeTypeList}" itemValue="id" value="${employee.userRole}"/>
         <br>
         <input type="submit" value="Save" />
     </form:form>

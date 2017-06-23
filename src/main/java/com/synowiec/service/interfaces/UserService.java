@@ -1,7 +1,7 @@
 package com.synowiec.service.interfaces;
 
 import com.synowiec.domain.Employee;
-import com.synowiec.domain.EmployeeType;
+import com.synowiec.domain.UserRole;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ public interface EmployeeService {
 	void updateEmployee(Employee employee);
 	void deleteEmployee(Employee employee);
 	
-	EmployeeType findEmployeeTypeById(long id); 
-	List<EmployeeType> getAllEmployeeTypes();
-	void addEmployeeType(EmployeeType empType); 
-	void updateEmployeeType(EmployeeType empType);
-	void deleteEmployeeType(EmployeeType empType);
+	UserRole findEmployeeTypeById(long id);
+	List<UserRole> getAllEmployeeTypes();
+	void addEmployeeType(UserRole empType);
+	void updateEmployeeType(UserRole empType);
+	void deleteEmployeeType(UserRole empType);
 
 }
